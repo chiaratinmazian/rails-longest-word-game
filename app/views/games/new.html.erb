@@ -1,0 +1,15 @@
+
+<h1>Welcome to the Longest word Game !!</h1>
+<div class="container">
+<% @letters.each do |letter| %>
+<div class="carre"><%= letter %></div>
+<% end %>
+</div>
+<form action="score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="games">
+  <input type="hidden" name="letters" value="<%= @letters %>">
+  <input type="submit" value="Give une réponse">
+</form>
+
+<%= link_to "new letters pleaz", new_path, class: "btn-new-letters" %>
